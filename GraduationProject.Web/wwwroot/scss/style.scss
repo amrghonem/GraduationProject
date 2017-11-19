@@ -1,0 +1,388 @@
+$greencolor:#8ccb75;
+$black:#1b1b1b;
+$purple:#bd82f0;
+$grey1:#595959;
+$grey2:#666666;
+body
+{ 
+
+   
+}
+// start Landing page
+.landingPage {
+    background: url('../images/bg.jpg') no-repeat center;
+    background-size: cover;
+    height: 100%;
+
+    .row {
+        margin-right: 0px;
+    }
+
+    .layer {
+        background-color: $grey1;
+        width: 100%;
+        height: 100%;
+        opacity: .7;
+        position: relative;
+    }
+
+    .logo {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 7%;
+        opacity: 0.7;
+        background-color: $grey2;
+    }
+
+    .logoimage {
+        position: absolute;
+        top: 10px;
+        margin-left: 3%;
+    }
+
+    .text {
+        position: absolute;
+        top: 30%;
+        color: #fff;
+        margin-left: 5%;
+
+        h1 {
+            font-size: 3.9rem;
+
+            span {
+                color: $purple;
+            }
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: $greencolor;
+        }
+
+        p {
+            margin-bottom: 0;
+            font-size: 25px;
+        }
+    }
+
+    .col-sm-8 {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    .btnSignLog {
+        margin-top: 15px;
+
+        .btn {
+            width: 80%;
+            font-size: 2vw;
+        }
+
+        .btn-success {
+            background-color: $greencolor;
+            border-color: $greencolor;
+            border-radius: 0px;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        .btn-outline-success {
+            border-color: $greencolor;
+            border-width: 2px;
+            color: #fff;
+            border-radius: 0px;
+
+            &:hover {
+                background-color: $greencolor;
+                border-color: $greencolor;
+            }
+        }
+    }
+    //  pop login &sign
+    .modal {
+        .modal-dialog {
+            .modal-content {
+                background-color: transparent;
+                border: none;
+
+                .modal-header {
+                    border-bottom: none;
+                    padding: 0px;
+
+                    h2 {
+                        color: $greencolor;
+                        font-size: 20px;
+                        font-weight: 400;
+                        text-align: left;
+                        padding: 30px 0px 20px 25px
+                    }
+
+                    .nav-tabs {
+                        border-bottom: none;
+
+                        .nav-link {
+                            &.active {
+                                background-color: $greencolor;
+                                border-color: $greencolor;
+                            }
+
+                            &:hover {
+                                border-color: $greencolor;
+                            }
+                        }
+
+                        a {
+                            color: #fff;
+                        }
+                    }
+
+                    button.close {
+                        color: #fff;
+                    }
+                }
+
+                .modal-body {
+                    padding: 10px 0 10px 0;
+                    background-color: #fff;
+
+                    .hide {
+                        display: none;
+                    }
+                    //start spinner
+                    .wrapper {
+                        display: inline-flex;
+                        -webkit-display: inline-flex;
+                    }
+
+                    .spinner {
+                        display: inline;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        text-indent: -9999em;
+                        position: relative;
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            border: 2px solid transparent;
+                            border-top-color: #8ccb75;
+                            border-right-color: #8ccb75;
+                            animation: spinner 0.5s linear infinite;
+                        }
+                    }
+
+                    .spinner--backing:before {
+                        border: 2px solid rgba(0, 0, 0, 0.08);
+                        border-top-color: #8ccb75;
+                        border-right-color: #8ccb75;
+                    }
+
+                    @-webkit-keyframes spinner {
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+
+                    @keyframes spinner {
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+                    //end spinner
+                    input[type="text"], input[type="password"], input[type="email"] {
+                        width: 348px;
+                        padding: 20px 0px;
+                        background: transparent;
+                        border: 0;
+                        outline: none;
+                        color: #222;
+                        margin: 0 auto;
+                        text-indent: 20px;
+                        font-weight: bold;
+                    }
+
+                    #mail:hover, #password:hover, #birthdate:hover, #username:hover {
+                        background: #F0F0F0;
+                        border-left: 5px solid $greencolor;
+                    }
+
+                    input[type="tel"] {
+                        margin: 0 auto;
+                        padding: 20px;
+                        width: 100%;
+                        max-width: 348px;
+                        display: block;
+                        border: 0;
+                        font-size: 20px;
+                        position: relative;
+                        top: 0;
+
+                        &::-webkit-outer-spin-button,
+                        &::-webkit-inner-spin-button {
+                            /* display: none; <- Crashes Chrome on hover */
+                            -webkit-appearance: none;
+                            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+                        }
+
+                        &:focus {
+                            outline: 0;
+                        }
+                    }
+
+                    .remember {
+                        padding: 30px 0px;
+                        font-size: 12px;
+                        text-indent: 20px;
+                        line-height: 15px;
+                        margin-left: 25px;
+                        display: inline-block;
+
+                        input[type=checkbox] {
+                            display: none;
+                        }
+
+                        label {
+                            display: block;
+                            position: absolute;
+                            margin-top: 2px;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 2px;
+                            content: "";
+                            transition: all 0.5s ease-in-out;
+                            cursor: pointer;
+                            border: 3px solid white;
+                            box-shadow: 0px 0px 0px 2px #ccc;
+                        }
+
+                        #remember:checked ~ label[for=remember] {
+                            background: $greencolor;
+                            border: 3px solid white;
+                            box-shadow: 0px 0px 0px 2px $greencolor;
+                        }
+                    }
+
+                    button[type="submit"] {
+                        background: $greencolor;
+                        border: 0;
+                        height: 30px;
+                        border-radius: 3px;
+                        color: white;
+                        font-weight: bold;
+                        padding: 0px 25px;
+                        cursor: pointer;
+                        transition: background 0.3s ease-in-out;
+                        margin-left: 50px;
+                    }
+
+                    span {
+                        &.msg {
+                            margin-top: 15px;
+                            color: red;
+                            display: block;
+                            margin-left: 24px;
+                        }
+                    }
+
+                    #loginDiv {
+                        .modal-footer {
+                            display: block;
+                            background-color: #fff;
+
+                            .forgot {
+                                margin-top: 25px;
+                                display: block;
+                                font-size: 13px;
+                                text-align: left;
+                                font-weight: bold;
+                                color: #b5b5b5;
+                                padding: 0px 0px 25px 25px;
+
+                                h3 {
+                                    font-size: 16px;
+                                    font-weight: normal;
+                                    margin-bottom: 15px;
+                                }
+
+                                a {
+                                    color: #777;
+                                }
+                            }
+                        }
+                    }
+
+                    #sginUpDiv {
+                        label {
+                            margin-left: 18px;
+                            color: $greencolor;
+                            font-weight: bold;
+                        }
+
+                        .hidden {
+                            display: none;
+                        }
+
+                        button[type="submit"] {
+                            margin-left: 58%;
+                        }
+
+                        .gender, .type {
+                            background: $greencolor;
+                            width: 45%;
+                            margin-left: 15px;
+
+                            select {
+                                background: transparent;
+                            }
+                        }
+
+                        .modal-footer {
+                            margin-top: 10px;
+                            padding: 15 15 0 15;
+
+                            a {
+                                color: #777;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End Landing page
+.popupSeccess {
+    .modal {
+        .modal-dialog {
+            .modal-content {
+                .modal-header {
+                    border-bottom:none;
+                    i { margin-left:40%;
+                        color:$greencolor;
+                    }
+
+                }
+
+                .modal-body
+                    {
+
+                }
+            }
+        }
+    }
+}
+
+
+
+
+

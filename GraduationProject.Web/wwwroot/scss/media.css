@@ -1,0 +1,65 @@
+@media (max-width: 575px) {
+  .hidden-xs {
+    display: none;
+  }
+  .logoimage {
+    margin-left: 25% !important;
+  }
+  .btnSignLog {
+    margin: 0 auto;
+    margin-top: 50% !important;
+    position: absolute;
+    text-align: center;
+  }
+  .btnSignLog button {
+    margin-bottom: 10px;
+  }
+  header .btnSignLog .btn {
+    width: 50%;
+    height: 20%;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 574px) {
+  header .btnSignLog .btn {
+    width: 100%;
+    height: 8%;
+  }
+  header .text h1 {
+    font-size: 2rem;
+  }
+  header .text h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  header .btnSignLog .btn {
+    width: 100%;
+    height: 8%;
+  }
+  header .text h1 {
+    font-size: 2.5rem;
+  }
+  header .text h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  header .text h1 {
+    font-size: 3rem;
+  }
+  header .text h2 {
+    font-size: 2rem;
+  }
+}
+ 
+
+ /*# sourceMappingURL= media.css.map */

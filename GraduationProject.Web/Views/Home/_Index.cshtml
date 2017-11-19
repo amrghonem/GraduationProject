@@ -1,0 +1,236 @@
+﻿<html >
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+        <link href="~/scss/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/scss/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/scss/media.css" rel="stylesheet" />
+        <link href="~/scss/style.css" rel="stylesheet" />
+    </head>
+    <body ng-app="landingPage">
+  
+        <!-- start page  -->
+        <section ng-controller="landingPageCtrl" class="landingPage">
+
+            <div class="row">
+                <!-- start layer  -->
+                <div class="col-sm-8 col-xs-12">
+                    <div class="layer"></div>
+                    <div class="logo"></div>
+                </div>
+                <!-- End layer  -->
+                <!-- strat logo  -->
+                <div class="logoimage">
+                    <div class="col-sm-2  col-sm-offset-1 "> <img src="~/images/logo.png"></div>
+                </div>
+                <!-- end logo  -->
+                <!-- start text  -->
+                <div class="text hidden-xs">
+                    <h1><span>LEARN</span> as if you were to live forever. </h1>
+                    <h2>SIGN UP For Free</h2>
+                    <p>Explore the Courses From around The World   </p>
+                    <p>and Learn From Any Where. </p>
+                </div>
+                <!-- end text  -->
+                <!--Start  button sign and login -->
+                <div class="col-sm-4 col-xs-8 btnSignLog">
+                    <div class="row">
+                        <div class=" col-sm-6 col-xs-12">
+                            <button type="button" id="loginBtn" class="btn  btn-success" data-toggle="modal" data-target="#myModal">LOGIN</button>
+                        </div>
+                        <div class=" col-sm-6 col-xs-12">
+                            <button type="button" id="signBtn" class="btn btn-outline-success " data-toggle="modal" data-target="#myModal">SIGN UP</button>
+                        </div>
+                    </div>
+                </div>
+                <!--End  button sign and login -->
+
+            </div>
+
+            <!-- Start Pop up Sign & Login -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false" data-backdrop="static" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- start  Tabs -->
+                            <ul class="nav nav-tabs flex-wrap" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link " id="tabSign" data-toggle="tab" href="#sginUpDiv" role="tab">Sgin Up</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tabLogin" data-toggle="tab" href="#loginDiv" role="tab">Login</a>
+                                </li>
+                            </ul>
+                            <!-- End  Tabs -->
+
+                            <button type="button" id ="close"class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <!-- strat Pop Up content  -->
+                        <div class="modal-body tab-content">
+                            
+                            <!-- start Login pop up -->
+                            <div id="loginDiv" class="tab-pane hide">
+                                <form name="loginfrm" novalidate ng-submit="login()">
+                                    <div ng-repeat="error in errorsLogin">
+                                        <span class="msg">{{error.description}}</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="loginMail" id="loginMail" placeholder="Mail" ng-model="userLogin.Email" required>
+                                   
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="loginPassword" id="loginPassword" ng-model="userLogin.Password" required placeholder="Password">
+                                    </div>
+                                    <div class="remember">
+                                        <input checked="checked" id="remember" name="remember" type="checkbox">
+                                        <label for="remember"></label>remember me
+                                    </div>
+                                    
+                                    <button class="btn btn-success " type="submit" id="loginPopBtn">Login</button>
+                                    <div class="wrapper" ng-show="showSpinnerLogin">
+                                        <div class="spinner " id="spinner">Loading</div>
+                                    </div>
+                                    <!-- start forget password -->
+                                    <div class="modal-footer">
+                                        <div class="forgot">
+                                            <h3>
+                                                Forgot your password?
+                                            </h3>
+                                            <a href="#">click here</a>
+                                            to order a new password.
+                                        </div>
+                                    </div>
+                                    <!-- End forget password -->
+
+                                </form>
+                            </div>
+                            <!-- End Login pop up -->
+                            <!--start Sign Up pop up -->
+                            <div id="sginUpDiv" class="tab-pane hide">
+                                <div ng-repeat="error in errorsSignUp">
+                                    <span class="msg">{{error.description}}</span>
+                                </div>
+                                <form name="signFrm" id="signFrm" novalidate ng-submit="signUp()">
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" ng-model="userSignUp.Username" required  placeholder="User Name">
+                                        <span class="msg" ng-show="signFrm.username.$dirty && signFrm.username.$error.required">*Required</span>
+                                     
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="mail" id="mail" placeholder="Mail" ng-model="userSignUp.Email" required>
+                                        <span class="msg" ng-show="signFrm.mail.$dirty && signFrm.mail.$invalid">*Email Address is not valid</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" ng-model="userSignUp.Password" required ng-minlength="8" placeholder="Password">
+                                        <span class="msg" ng-show="signFrm.password.$dirty && signFrm.password.$error.required">*Required</span>
+                                        @*<span class="msg" ng-show="signFrm.user.password.$dirty && signFrm.user.Password.$error.minlength">Mini 8 characters</span>*@
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="confirmPass" id="confirmPass" ng-model="confirmPass" required ng-pattern="password" placeholder="Confirm Password">
+                                       <span class="msg" ng-show="signFrm.confirmPass.$dirty && signFrm.confirmPass.$error.required">*Required</span>
+                                        <span class="msg" ng-show="signFrm.confirmPass.$error.pattern" >Password Dont match</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Birthdate</label>
+                                        <input type="tel" name="bithDate" id="birthdate" ng-model="userSignUp.Birthdate" required placeholder="MM/DD/YYYY" data-inputLength="0" />
+                                        <span class="msg" ng-show="signFrm.birthdate.$dirty && signFrm.bithDate.$error.required">Required</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <div class="gender">
+                                            <select class="form-control" id="exampleSelect1" required name="Gender" ng-model="userSignUp.Gender">
+                                                <option ng-selected="true" ng-if="false"></option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                            <span ng-show="signFrm.Gender.$dirty && signFrm.Gender.$error.required">Required</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Type</label>
+                                        <div class="type">
+                                            <select class="form-control" id="exampleSelect1" required name="type" ng-model="userSignUp.UserRole">
+                                                <option ng-selected="true" ng-if="false"></option>
+                                                <option>Student</option>
+                                                <option>Chance owner</option>
+                                            </select>
+                                            <span ng-show="signFrm.type.$dirty && signFrm.type.$error.required">Required</span>
+                                        </div>
+                                    </div>
+
+
+                                   
+                                
+                                    <button class="btn btn-success" type="submit" id="signPopBtn" ng-disabled="signFrm.$invalid" >Sign UP</button>
+                                    <div class="wrapper" ng-show="showSpinnerSign">
+                                        <div class="spinner " id="spinner">Loading</div>
+                                    </div>
+                                    <!-- start Terms  -->
+                                    <div class="modal-footer">
+                                        <p>
+                                            By clicking Sign UP, you agree to our <a href="#">Term</a> and confirm that you have read our <a href="#">Data Policy</a>, including our <a href="#">Cookie Use Policy</a>.
+                                        </p>
+                                     
+                                    </div>
+
+                                    <!-- End Terms  -->
+
+                                </form>
+                            </div>
+                            <!-- End Sign Up pop up -->
+
+                        </div>
+                        <!-- End Pop Up content  -->
+
+                    </div>
+
+                </div>
+           
+               
+            </div>
+            <!-- End Pop up Sign & Login -->
+           
+        </section>
+        @*start pop up success sign*@
+        <section class="popupSeccess">
+            <div id="popupSeccess" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <i class="fa fa-check-circle fa-3x" aria-hidden="true" \></i>
+                        </div>
+                        <div class="modal-body">
+                            <p>Thank you <span>Bailasan</span></p>
+                            <p>Go To mail to active your account</p>
+                        </div>
+                        @*<div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </section>
+        @*start pop up success sign*@
+
+
+        <!-- end page -->
+      
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/popper.min.js"></script>
+        <script src="~/js/bootstrap.min.js"></script>
+        <script src="~/js/custom.js"></script>
+
+        <script src="~/lib/angular/angular.js"></script>
+        <script src="~/lib/angular/angular-messages.min.js"></script>
+        <script src="~/lib/angular/angular-route.min.js"></script>
+
+        <script src="~/angularcomponents/LandingPage/landingPage-app.js"></script>
+        <script src="~/angularcomponents/LandingPage/srvs/signup.js"></script>
+        <script src="~/angularcomponents/LandingPage/srvs/login.js"></script>
+        <script src="~/angularcomponents/LandingPage/Controller/landingPageCtrl.js"></script>
+
+    </body>
+    </html>

@@ -1,0 +1,15 @@
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Services.deps.json
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Services.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Services.pdb
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Data.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Infrastructure.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Data.pdb
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Infrastructure.pdb
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.pdb
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.csprojResolveAssemblyReference.cache
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.csproj.CoreCompileInputs.cache
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.AssemblyInfoInputs.cache
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.AssemblyInfo.cs
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.pdb
