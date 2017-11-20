@@ -99,8 +99,8 @@ namespace GraduationProject.Web.Controllers.Api
             var User = await _userManager.FindByEmailAsync(userEmail);
             newStudentSkill.StudentId = User.Id;
             var skill = _profileSrv.AddStudentSkill(newStudentSkill); 
-            if ( skill !=0)
-                return Ok(new { Status = "Success", Id =skill});
+            if ( skill !=null)
+                return Ok(new { Status = "Success", Id =skill.Id,SkillName = skill.Name});
             else
                 return Ok(new { Status = "Failed",Msg="Skill Exist" });
         }
