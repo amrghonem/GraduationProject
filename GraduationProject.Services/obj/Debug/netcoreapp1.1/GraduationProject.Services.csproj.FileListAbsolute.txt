@@ -13,18 +13,3 @@ D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Servi
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.AssemblyInfo.cs
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.pdb
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Services.deps.json
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Services.dll
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Services.pdb
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Data.dll
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.dll
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Infrastructure.dll
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Data.pdb
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.Infrastructure.pdb
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.pdb
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.csprojResolveAssemblyReference.cache
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.csproj.CoreCompileInputs.cache
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.AssemblyInfoInputs.cache
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.AssemblyInfo.cs
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.dll
-D:\GP\MindHub\GraduationProject\GraduationProject.Services\obj\Debug\netcoreapp1.1\GraduationProject.Services.pdb

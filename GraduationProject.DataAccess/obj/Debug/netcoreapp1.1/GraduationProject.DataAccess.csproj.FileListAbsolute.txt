@@ -1,22 +1,11 @@
-D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.csprojResolveAssemblyReference.cache
-D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.csproj.CoreCompileInputs.cache
-D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.AssemblyInfoInputs.cache
-D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.AssemblyInfo.cs
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.deps.json
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.pdb
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.Data.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.Data.pdb
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.csprojResolveAssemblyReference.cache
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.csproj.CoreCompileInputs.cache
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.AssemblyInfoInputs.cache
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.AssemblyInfo.cs
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.pdb
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.deps.json
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.dll
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.DataAccess.pdb
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.Data.dll
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\bin\Debug\netcoreapp1.1\GraduationProject.Data.pdb
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.csprojResolveAssemblyReference.cache
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.csproj.CoreCompileInputs.cache
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.AssemblyInfoInputs.cache
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.AssemblyInfo.cs
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.dll
-D:\GP\MindHub\GraduationProject\GraduationProject.DataAccess\obj\Debug\netcoreapp1.1\GraduationProject.DataAccess.pdb
