@@ -100,7 +100,7 @@ namespace GraduationProject.Web.Controllers.Api
             newStudentSkill.StudentId = User.Id;
             var skill = _profileSrv.AddStudentSkill(newStudentSkill); 
             if ( skill !=null)
-                return Ok(new { Status = "Success", Id =skill.Id,SkillName = skill.Name});
+                return Ok(new { Status = "Success", Id =skill.Id,SkillName=skill.Name});
             else
                 return Ok(new { Status = "Failed",Msg="Skill Exist" });
         }
