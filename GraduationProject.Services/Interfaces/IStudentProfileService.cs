@@ -11,7 +11,7 @@ namespace GraduationProject.Services.Interfaces
         Student CreateStudentProfile(Student profile);
         StudentProfileVM GetStudentProfile(ApplicationUser user);
         Student EditProile(Student student);
-        bool AddStudentSkill(StudentSkill newStudentSkill);
+        int AddStudentSkill(StudentSkill newStudentSkill);
         int DeleteStudentSkill(int studentakillid);
         Question AddQuestion(Question newQuestion);
         int DeleteQuestion(int questionId);

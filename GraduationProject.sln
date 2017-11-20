@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationProject.Services"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationProject.Web", "GraduationProject.Web\GraduationProject.Web.csproj", "{4B4E6D10-70BB-43F6-91B0-E9188B04AE66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationProject.SignalR", "GraduationProject.SignalR\GraduationProject.SignalR.csproj", "{5B9D8995-3BE1-4154-9945-2D670C500AD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4B4E6D10-70BB-43F6-91B0-E9188B04AE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B4E6D10-70BB-43F6-91B0-E9188B04AE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B4E6D10-70BB-43F6-91B0-E9188B04AE66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B9D8995-3BE1-4154-9945-2D670C500AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B9D8995-3BE1-4154-9945-2D670C500AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B9D8995-3BE1-4154-9945-2D670C500AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B9D8995-3BE1-4154-9945-2D670C500AD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

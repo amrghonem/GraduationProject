@@ -6,6 +6,7 @@ D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.AssemblyInfo.cs
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.pdb
+<<<<<<< HEAD
 D:\GP\MindHub\GraduationProject\GraduationProject.Data\bin\Debug\netcoreapp1.1\GraduationProject.Data.deps.json
 D:\GP\MindHub\GraduationProject\GraduationProject.Data\bin\Debug\netcoreapp1.1\GraduationProject.Data.dll
 D:\GP\MindHub\GraduationProject\GraduationProject.Data\bin\Debug\netcoreapp1.1\GraduationProject.Data.pdb
@@ -15,3 +16,6 @@ D:\GP\MindHub\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\G
 D:\GP\MindHub\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.AssemblyInfo.cs
 D:\GP\MindHub\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.dll
 D:\GP\MindHub\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.pdb
+=======
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.csprojResolveAssemblyReference.cache
+>>>>>>> 62b9886f7bb00a6fa24188a76b531173808afd04
