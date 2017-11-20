@@ -21,6 +21,8 @@ namespace GraduationProject.Services.Implementation
         private IRepository<StudentCourse> _courseRepo;
         private IRepository<StudentExam> _examRepo;
         private IRepository<Friend> _frindRepo;
+        private IRepository<Skill> _skillRepo;
+
         //ApplicationDbContext _db;
         #endregion
 
@@ -32,7 +34,8 @@ namespace GraduationProject.Services.Implementation
             ,IRepository<StudentCourse> courseRepo
             ,IRepository<StudentExam> examRepo
             ,IRepository<Friend> frindRepo
-            ,IRepository<Question> questionsRepo/*, ApplicationDbContext db*/)
+            , IRepository<Skill> skillRepo
+            , IRepository<Question> questionsRepo/*, ApplicationDbContext db*/)
         {
             //_db = db;
             _repoStud = Stuedntrepo;
@@ -42,6 +45,7 @@ namespace GraduationProject.Services.Implementation
             _courseRepo = courseRepo;
             _examRepo = examRepo;
             _frindRepo = frindRepo;
+            _skillRepo = skillRepo;
         }
         #endregion
 
@@ -79,15 +83,18 @@ namespace GraduationProject.Services.Implementation
             return  _repoStud.Update(student);
         }
 
-        public Skill AddStudentSkill(StudentSkill newStudentSkill)
+        public StudentSkillVM AddStudentSkill(StudentSkill newStudentSkill)
         {
-           
+
             var getStudentSkill = _studentSkillRepo.GetAll().Where(ss => ss.StudentId == newStudentSkill.StudentId
             && ss.SkillId == newStudentSkill.SkillId).Any();
             if (getStudentSkill)
                 return null;
-            else
-            return _studentSkillRepo.Insert(newStudentSkill);
+            else {
+                    var result = _studentSkillRepo.Insert(newStudentSkill);
+                   var skill = _skillRepo.GetAll().Include(s => s.StudentSkills).SingleOrDefault(s => s.Id == result.SkillId);
+                return new StudentSkillVM() { Id=result.Id , SkillName= skill.Name};
+                }
         }
 
         public int DeleteStudentSkill(int studentakillid)
