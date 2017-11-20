@@ -21,8 +21,6 @@ namespace GraduationProject.Services.Implementation
         private IRepository<StudentCourse> _courseRepo;
         private IRepository<StudentExam> _examRepo;
         private IRepository<Friend> _frindRepo;
-        private IRepository<Skill> _skillRepo;
-
         //ApplicationDbContext _db;
         #endregion
 
@@ -34,8 +32,7 @@ namespace GraduationProject.Services.Implementation
             ,IRepository<StudentCourse> courseRepo
             ,IRepository<StudentExam> examRepo
             ,IRepository<Friend> frindRepo
-            , IRepository<Skill> skillRepo
-            , IRepository<Question> questionsRepo/*, ApplicationDbContext db*/)
+            ,IRepository<Question> questionsRepo/*, ApplicationDbContext db*/)
         {
             //_db = db;
             _repoStud = Stuedntrepo;
@@ -45,7 +42,6 @@ namespace GraduationProject.Services.Implementation
             _courseRepo = courseRepo;
             _examRepo = examRepo;
             _frindRepo = frindRepo;
-            _skillRepo = skillRepo;
         }
         #endregion
 
@@ -91,11 +87,7 @@ namespace GraduationProject.Services.Implementation
             if (getStudentSkill)
                 return null;
             else
-            {
-                var result =_studentSkillRepo.Insert(newStudentSkill);
-                var skill = _skillRepo.Get(result.SkillId);
-             return skill;
-            }
+            return _studentSkillRepo.Insert(newStudentSkill);
         }
 
         public int DeleteStudentSkill(int studentakillid)

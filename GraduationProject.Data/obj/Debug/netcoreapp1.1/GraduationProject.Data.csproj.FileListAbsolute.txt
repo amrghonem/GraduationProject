@@ -6,3 +6,4 @@ D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.AssemblyInfo.cs
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.pdb
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Data\obj\Debug\netcoreapp1.1\GraduationProject.Data.csprojResolveAssemblyReference.cache
