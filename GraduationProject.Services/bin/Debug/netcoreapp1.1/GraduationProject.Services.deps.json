@@ -567,14 +567,14 @@
     "Microsoft.AspNetCore.Authentication/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tXq+TAXnzpIh7ZY5WuAFUCGmG2wDZCJOE3US/RK0Mz2TcK4PCD0clmhWZ+FBn1UlciBHomhqWh1g6NYkfBiosw==",
+      "sha512": "sha512-nG9AcO8Do23L/KcQayxx0r11wEPjB303TCV/0pqE8j3q1eMcamThFDQ3RtD/qXwk0rmMbyP3zGgZ+5I8TSLvCQ==",
       "path": "microsoft.aspnetcore.authentication/1.1.2",
       "hashPath": "microsoft.aspnetcore.authentication.1.1.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.Cookies/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jmlMAOlRcQhn4erL+AhFh0uitQ0kYUv0zYoc39b9CPFEdllgfDpmW9aNvbhmeddCxmisjOy8nVhAjX3vJpu/yw==",
+      "sha512": "sha512-oqcuY3+r/vuanOnM1LulYMq3HJk7AGIxYYcmC6qRfLt2aEUQLzpwsgA3wYj456XbzNSXf51hu0m+fjj/V2LsVQ==",
       "path": "microsoft.aspnetcore.authentication.cookies/1.1.2",
       "hashPath": "microsoft.aspnetcore.authentication.cookies.1.1.2.nupkg.sha512"
     },
@@ -588,7 +588,7 @@
     "Microsoft.AspNetCore.Cryptography.KeyDerivation/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SWQ427hTy6+zIuTf02hxFXb1uN0O1CXa+VdbBzHqBuaKbKGKaGd9S4DZH90+m7AfGR4qJNCdNo4C/5jQ/G5tHg==",
+      "sha512": "sha512-LG4cN68fvL151M/+sVfOl3DkLe8a/GPSHnQtde/8hth7Najpb64ZQE3q0WRvhflc8GzStdNWmxb8Sx3j3PWliQ==",
       "path": "microsoft.aspnetcore.cryptography.keyderivation/1.1.2",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.1.1.2.nupkg.sha512"
     },
@@ -651,14 +651,14 @@
     "Microsoft.AspNetCore.Identity/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dEK7m00pSzz4dZ1BhEdaEKEzeIstdPv+qb8inTDS53SY8g4y0xv0J91j3LI8gRD0O8GBJfPT5n0rkUXYJbWnTQ==",
+      "sha512": "sha512-OwKAA/0j+T5zOC1NkQLq1aqIh+K7AfYRktwqZ1UxVYoAd5wqvR2YQ8PXskAL7gG7+02UoOVlMAQrbBTg0efg6A==",
       "path": "microsoft.aspnetcore.identity/1.1.2",
       "hashPath": "microsoft.aspnetcore.identity.1.1.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eQKONQD+pn73W4knkUPZjhH2HAEJBpR8oD+lTakZ3R2DjzF9hc/cZrp7LaZm6CkSja37kigrz/R/b9bmsq0bxA==",
+      "sha512": "sha512-oB0t/RrmnVFcKMWvlCsicvElx96sHRSp+ruas5V+/OQqy97HMVAMoYJW1zRHY73pA1Dra4V+IaBGpFUeS1/o+Q==",
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/1.1.2",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.1.1.2.nupkg.sha512"
     },
