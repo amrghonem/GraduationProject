@@ -79,17 +79,15 @@ namespace GraduationProject.Services.Implementation
             return  _repoStud.Update(student);
         }
 
-        public bool AddStudentSkill(StudentSkill newStudentSkill)
+        public int AddStudentSkill(StudentSkill newStudentSkill)
         {
            
             var getStudentSkill = _studentSkillRepo.GetAll().Where(ss => ss.StudentId == newStudentSkill.StudentId
             && ss.SkillId == newStudentSkill.SkillId).Any();
             if (getStudentSkill)
-                return false;
+                return 0;
             else
-            _studentSkillRepo.Insert(newStudentSkill);
-            return true;
-  
+            return _studentSkillRepo.Insert(newStudentSkill).Id;
         }
 
         public int DeleteStudentSkill(int studentakillid)
