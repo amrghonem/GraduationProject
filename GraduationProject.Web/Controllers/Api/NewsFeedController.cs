@@ -17,11 +17,15 @@ namespace GraduationProject.Web.Controllers.Api
     {
         private INewsFeedService _newsFeedSrv;
         private UserManager<ApplicationUser> _userManager;
+        private IStudentProfileService _studSrv;
 
-        public NewsFeedController(INewsFeedService newsFeedSrv,UserManager<ApplicationUser> userManager)
+        public NewsFeedController(INewsFeedService newsFeedSrv
+            ,UserManager<ApplicationUser> userManager
+            , IStudentProfileService studSrv)
         {
             _newsFeedSrv = newsFeedSrv;
             _userManager = userManager;
+            _studSrv = studSrv;
         }
         [HttpPost]
         [Route("api/addanswer")]
@@ -40,7 +44,15 @@ namespace GraduationProject.Web.Controllers.Api
             var userEmail = claim.Value;
             var User = await _userManager.FindByEmailAsync(userEmail);
 
-            return Ok(new { status = "Success", Feed = _newsFeedSrv.FollowingQuestions(User.Id) });
+            var studentData = _studSrv.GetStudent(User.Id);
+
+            return Ok(new { status = "Success",StudentData = new {
+                Username = User.Name,
+                StudentId = User.Id,
+                Image = studentData.Image,
+                Title = studentData.Title
+            }
+            , Feed = _newsFeedSrv.FollowingQuestions(User.Id).OrderByDescending(q=>q.Id) });
 
         }
     }

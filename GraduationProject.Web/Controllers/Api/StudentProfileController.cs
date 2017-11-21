@@ -77,7 +77,14 @@ namespace GraduationProject.Web.Controllers.Api
                 Image =updatedProfileInfo.Image,
                 Info = updatedProfileInfo.Info,
                 School =updatedProfileInfo.School,
-                Universty = updatedProfileInfo.Universty
+                Universty = updatedProfileInfo.Universty,
+                Username = User.Name,
+                SchoolYearFrom = student.SchholYearFrom,
+                SchoolYearTo = student.SchholYearTo,
+                UniverstyYearFrom = student.UniverstyYearFrom,
+                UniverstyYearTo = student.UniverstyYearTo,
+                Gender = User.Gender,
+                BirthDate = User.BirthDate.ToString("MM/dd/yyyy")
             } });
         }
 
@@ -142,9 +149,12 @@ namespace GraduationProject.Web.Controllers.Api
                     Question = new
                     {
                         QuestionHead = Question.QuestionHead,
-                        QuestionId = Question.Id,
+                        Id = Question.Id,
                         Likes = Question.Likes,
-                        Dislikes = Question.Dislikes
+                        Dislikes = Question.Dislikes,
+                        Username = User.Name,
+                        UserId = User.Id,
+                        Image = "",
                         //,
                         //                    Answers =
                         //     from a in Question.Answers
@@ -156,7 +166,7 @@ namespace GraduationProject.Web.Controllers.Api
                         //         Username = a.User.Name,
                         //         UserImage = _profileSrv.GetStudentProfile(User).Image
                         //     }//End Answers
-                                        }//End Questions
+                    }//End Questions
                                     }//End Response Object
                      );
             }
@@ -168,10 +178,12 @@ namespace GraduationProject.Web.Controllers.Api
                     Question = new
                     {
                         QuestionHead = Question.QuestionHead,
-                        QuestionId = Question.Id,
+                        Id = Question.Id,
                         Likes = Question.Likes,
-                        Dislikes = Question.Dislikes
-                    ,
+                        Dislikes = Question.Dislikes,
+                        Username= User.Name,
+                        UserId = User.Id,
+                        Image = "",
                         Answers =new { }
                      
                         }//End Questions

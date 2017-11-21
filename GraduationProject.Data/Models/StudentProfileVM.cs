@@ -20,7 +20,7 @@ namespace GraduationProject.Data.Models
         public bool? FirstVisit { get; set; }
         public string Email { get; set; }
         public string Gender { get; set; }
-        public DateTime? BirthDate { get; set; }
+        public string BirthDate { get; set; }
         public string Title { get; set; }
         public IEnumerable<StudentSkillVM> Skills { get; set; }
         public IEnumerable<StudentExamVM> Exams { get; set; }

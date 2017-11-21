@@ -143,7 +143,7 @@ namespace GraduationProject.Services.Implementation
             var studentInfo = _repoStud.GetAll().Include(u => u.User).SingleOrDefault(u => u.ApplicationUserId == userId);
             StudentProfileVM studentProfile = new StudentProfileVM() {
                 ProfileId= studentInfo.Id,
-                BirthDate = studentInfo.User.BirthDate,
+                BirthDate = studentInfo.User.BirthDate.ToString("MM/dd/yyyy"),
                 Email = studentInfo.User.Email,
                 FirstVisit = studentInfo.FirstVisit,
                 Info = studentInfo.Info,
