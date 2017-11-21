@@ -18,5 +18,6 @@ namespace GraduationProject.Services.Interfaces
         //StudentProfileVM GetStudentFullProfile(string userId);
         int UnFollowFriendint(int id);
         Friend FollowFriend(ApplicationUser user, ApplicationUser frined);
+        Student GetStudent(string id);
     }
 }
