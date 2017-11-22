@@ -68,3 +68,16 @@ D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Signa
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\obj\Debug\GraduationProject.SignalR.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\obj\Debug\GraduationProject.SignalR.pdb
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\obj\Debug\GraduationProject.SignalR.csprojResolveAssemblyReference.cache
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.Security.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Newtonsoft.Json.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Owin.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.Security.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Newtonsoft.Json.xml

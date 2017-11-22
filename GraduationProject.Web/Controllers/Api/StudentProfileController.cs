@@ -255,14 +255,25 @@ namespace GraduationProject.Web.Controllers.Api
             return Ok(new { Status = "Success"});
         }
 
-        [AllowAnonymous]
-        //[Route("api/upload")]
+        [Authorize(policy: "Students")]
+        [Route("api/uploadstudentimage")]
         [HttpPost]
-        public IActionResult UploadImage(IFormFile file)
+        public async Task<IActionResult> UploadStudentImage(IFormFile file)
         {
             var files = Request.Form.Files;
-            if (file.Length > 0 && file.Length < 5000 )
+            if (file.Length > 0 && file.Length < 5000)
             {
+                //Get Request's User 
+                var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+                if (!claimsIdentity.IsAuthenticated)
+                {
+                    return Unauthorized();
+                }
+                //Get Student Profile
+                var claim = claimsIdentity.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+                var userEmail = claim.Value;
+                var User = await _userManager.FindByEmailAsync(userEmail);
+
                 var checkExtension = Path.GetExtension(file.FileName).ToLower();
                 var allowedExtentions = new[] {".png",".jpg",".jpeg" };
 
@@ -275,7 +286,9 @@ namespace GraduationProject.Web.Controllers.Api
                 {
                     file.CopyTo(fs);
                 }
-                return Ok(new { Status = "Success" });
+
+                var result = _profileSrv.UpdateStudentImage(User.Id, path);
+                return Ok(new { Status = "Success", ImagePath = result });
             }
             return Ok(new {Status ="Failed",Msg= "Exceed Sizes Limit" });
         }
