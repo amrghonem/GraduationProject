@@ -141,6 +141,14 @@ namespace GraduationProject.Services.Implementation
             return _frindRepo.Delete(_frindRepo.Get(id));
         }
 
+        public string UpdateStudentImage(string userid , string imagepath)
+        {
+            var Student = _repoStud.GetAll().SingleOrDefault(s => s.ApplicationUserId == userid);
+            Student.Image = imagepath;
+            _repoStud.Update(Student);
+            return Student.Image;
+        }
+
 
         StudentProfileVM GetStudentFullProfile(string userId)
         {

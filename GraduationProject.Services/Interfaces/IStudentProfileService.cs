@@ -19,5 +19,6 @@ namespace GraduationProject.Services.Interfaces
         int UnFollowFriendint(int id);
         Friend FollowFriend(ApplicationUser user, ApplicationUser frined);
         Student GetStudent(string id);
+        string UpdateStudentImage(string userid, string imagepath);
     }
 }
