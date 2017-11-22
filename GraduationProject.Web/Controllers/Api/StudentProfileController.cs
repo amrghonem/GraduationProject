@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Http.Internal;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using GraduationProject.Web.Models;
+
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace GraduationProject.Web.Controllers.Api
@@ -59,7 +61,7 @@ namespace GraduationProject.Web.Controllers.Api
         [Authorize(policy: "Students")]
         [Route("api/editstudentprofile")]
         [HttpPost]
-        public async Task<IActionResult> EditStudentProfile([FromBody]Student student)
+        public async Task<IActionResult> EditStudentProfile([FromBody]EditProfileVM student)
         {
             //Get Request's User 
             var claimsIdentity = (ClaimsIdentity)this.User.Identity;
@@ -72,7 +74,25 @@ namespace GraduationProject.Web.Controllers.Api
             var userEmail = claim.Value;
             var User = await _userManager.FindByEmailAsync(userEmail);
             student.ApplicationUserId = User.Id;
-            var updatedProfileInfo = _profileSrv.EditProile(student);
+
+            Student studentToEdit = new Student();
+            studentToEdit.Id = student.Id;
+            studentToEdit.Info = student.Info;
+            studentToEdit.Title = student.Title;
+            studentToEdit.Universty = student.Universty;
+            studentToEdit.School = student.School;
+            studentToEdit.SchholYearFrom = student.SchholYearFrom;
+            studentToEdit.SchholYearTo = student.SchholYearTo;
+            studentToEdit.UniverstyYearFrom = student.UniverstyYearFrom;
+            studentToEdit.UniverstyYearTo = student.UniverstyYearTo;
+            studentToEdit.ApplicationUserId = User.Id;
+            ApplicationUser userToEdit = new ApplicationUser();
+            userToEdit = User;
+            userToEdit.Gender = student.Gender;
+            userToEdit.BirthDate =Convert.ToDateTime(student.Birthdate);
+            userToEdit.Name = student.Username;
+            var updatedProfileInfo = _profileSrv.EditProile(studentToEdit,userToEdit);
+
             return Ok(new { Status = "Success", ProfileInfo = new {
                 Image =updatedProfileInfo.Image,
                 Info = updatedProfileInfo.Info,
@@ -87,7 +107,6 @@ namespace GraduationProject.Web.Controllers.Api
                 BirthDate = User.BirthDate.ToString("MM/dd/yyyy")
             } });
         }
-
 
         [Authorize(policy: "Students")]
         [Route("api/addstudentskill")]
@@ -140,6 +159,13 @@ namespace GraduationProject.Web.Controllers.Api
             newQuestion.Likes = 0;
             newQuestion.Dislikes = 0; 
             var Question = _profileSrv.AddQuestion(newQuestion);
+
+            //SignalR Layer .
+            // 1) Get List Of Followings Connections Ids .
+
+            // 2) Get Question Object .
+
+            // 3) Call SignalR Api Pass Parameters To It .
 
             try
             {
