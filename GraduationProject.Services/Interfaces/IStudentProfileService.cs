@@ -10,7 +10,7 @@ namespace GraduationProject.Services.Interfaces
     {
         Student CreateStudentProfile(Student profile);
         StudentProfileVM GetStudentProfile(ApplicationUser user);
-        Student EditProile(Student student);
+        Student EditProile(Student student,ApplicationUser user);
         StudentSkillVM AddStudentSkill(StudentSkill newStudentSkill);
         int DeleteStudentSkill(int studentakillid);
         Question AddQuestion(Question newQuestion);

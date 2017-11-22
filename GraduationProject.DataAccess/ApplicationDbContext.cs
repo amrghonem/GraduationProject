@@ -16,6 +16,7 @@ namespace GraduationProject.DataAccess
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> QuestionsAnswers { get; set; }
         public DbSet<Friend> Friends { get; set; }
+        public DbSet<SignalRConnection> SignalrConnections { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

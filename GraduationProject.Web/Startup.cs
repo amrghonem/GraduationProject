@@ -41,11 +41,11 @@ namespace GraduationProject.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-
-            ///services.AddSignalR();
+            
 
             services.AddMvc();
-
+            services.AddMemoryCache();
+            services.AddSession();
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -125,7 +125,7 @@ namespace GraduationProject.Web
                 cfg.AddPolicy("Admins", p => p.RequireClaim("Admin", "True"));
             });
 
-
+            
 
             //Dependancy Injection
             services.AddScoped<IEmailSender, EmailSender>();
@@ -163,13 +163,13 @@ namespace GraduationProject.Web
                 }
             });
 
-
+            app.UseSession();
             app.UseMvc(routes =>
                 routes.MapRoute(
                     name: "Default",
                     template: "{controller=Home}/{action=Index}/{Id?}"
                     ));
-
+            
             app.UseIdentity();
 
             app.UseStaticFiles();

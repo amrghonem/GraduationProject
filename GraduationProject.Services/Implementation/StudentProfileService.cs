@@ -13,6 +13,7 @@ namespace GraduationProject.Services.Implementation
 {
     public class StudentProfileService : IStudentProfileService
     {
+        private ApplicationDbContext _ctx;
         #region Attrs
         private IRepository<Student> _repoStud;
         private IRepository<StudentSkill> _studentSkillRepo;
@@ -35,9 +36,9 @@ namespace GraduationProject.Services.Implementation
             ,IRepository<StudentExam> examRepo
             ,IRepository<Friend> frindRepo
             , IRepository<Skill> skillRepo
-            , IRepository<Question> questionsRepo/*, ApplicationDbContext db*/)
+            , IRepository<Question> questionsRepo, ApplicationDbContext ctx)
         {
-            //_db = db;
+            _ctx = ctx;
             _repoStud = Stuedntrepo;
             _studentSkillRepo = studentSkillRepo;
             _questionsRepo = questionsRepo;
@@ -74,12 +75,16 @@ namespace GraduationProject.Services.Implementation
             return GetStudentFullProfile(user.Id);
         }
 
-        public Student EditProile(Student student)
+        public Student EditProile(Student student,ApplicationUser user)
         {
             if (student == null)
                 throw new ArgumentNullException();
             //After Edting Means User Complete His Profile.
             student.FirstVisit = false;
+            //Edit User Account Data ==> Gender,Birthdate,Name
+            var userToEdit = _ctx.Users.SingleOrDefault(u => u.Id == user.Id);
+            userToEdit = user;
+            _ctx.SaveChanges();
             return  _repoStud.Update(student);
         }
 

@@ -179,6 +179,22 @@ namespace GraduationProject.DataAccess.Migrations
                     b.ToTable("Questions");
                 });
 
+            modelBuilder.Entity("GraduationProject.Data.SignalRConnection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ApplicationUserId");
+
+                    b.Property<string>("ConnectionId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("SignalrConnections");
+                });
+
             modelBuilder.Entity("GraduationProject.Data.Skill", b =>
                 {
                     b.Property<int>("Id")
@@ -437,6 +453,13 @@ namespace GraduationProject.DataAccess.Migrations
                     b.HasOne("GraduationProject.Data.ApplicationUser", "User")
                         .WithMany("Questions")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("GraduationProject.Data.SignalRConnection", b =>
+                {
+                    b.HasOne("GraduationProject.Data.ApplicationUser", "User")
+                        .WithMany("SignalrConnections")
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("GraduationProject.Data.Student", b =>
