@@ -29,10 +29,19 @@ namespace GraduationProject.Web.Controllers.Api
         }
         [HttpPost]
         [Route("api/addanswer")]
-        public IActionResult CreateAnswer([FromBody]Answer answer)
+        [Authorize]
+        public async Task<IActionResult> CreateAnswer([FromBody]Answer answer)
         {
-            _newsFeedSrv.AddAnswer(answer);
-            return Ok(new { Status = "Success" });
+            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+            var claim = claimsIdentity.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            var userEmail = claim.Value;
+            var User = await _userManager.FindByEmailAsync(userEmail);
+
+            answer.UserId = User.Id;
+            var result = _newsFeedSrv.AddAnswer(answer);
+           if (result!=null)
+                return Ok(new { Status = "Success" ,AddedAnswer = result });
+            return Ok(new { Status = "False" });
         }
         [HttpGet]
         [Route("api/newsfeed")]
@@ -46,11 +55,15 @@ namespace GraduationProject.Web.Controllers.Api
 
             var studentData = _studSrv.GetStudent(User.Id);
 
-            return Ok(new { status = "Success",StudentData = new {
+            return Ok(new { status = "Success",StudentData = new
+            {
                 Username = User.Name,
                 StudentId = User.Id,
                 Image = studentData.Image,
-                Title = studentData.Title
+                Title = studentData.Title,
+                Followers = _studSrv.StudentFollowersCount(User.Id),
+                Following = _studSrv.StudentFollowingCount(User.Id),
+                Gender = studentData.User.Gender
             }
             , Feed = _newsFeedSrv.FollowingQuestions(User.Id).OrderByDescending(q=>q.Id) });
 

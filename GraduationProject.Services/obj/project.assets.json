@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.1": {
@@ -3252,12 +3252,6 @@
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "1.1.1",
           "Microsoft.NETCore.App": "1.1.2"
-        },
-        "compile": {
-          "bin/placeholder/GraduationProject.Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GraduationProject.Data.dll": {}
         }
       },
       "GraduationProject.DataAccess/1.0.0": {
@@ -3271,12 +3265,6 @@
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "1.1.1",
           "Microsoft.NETCore.App": "1.1.2"
-        },
-        "compile": {
-          "bin/placeholder/GraduationProject.DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GraduationProject.DataAccess.dll": {}
         }
       },
       "GraduationProject.Infrastructure/1.0.0": {
@@ -3291,12 +3279,6 @@
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "1.1.1",
           "Microsoft.NETCore.App": "1.1.2"
-        },
-        "compile": {
-          "bin/placeholder/GraduationProject.Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GraduationProject.Infrastructure.dll": {}
         }
       }
     }
@@ -9241,28 +9223,15 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "D:\\Graducation Project\\Web Application\\GraduationProject\\GraduationProject.Services\\GraduationProject.Services.csproj",
       "projectName": "GraduationProject.Services",
       "projectPath": "D:\\Graducation Project\\Web Application\\GraduationProject\\GraduationProject.Services\\GraduationProject.Services.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "D:\\Graducation Project\\Web Application\\GraduationProject\\GraduationProject.Services\\obj\\",
       "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
-      "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {},
-        "https://api.nuget.org/v3/index.json": {}
-      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
@@ -9274,11 +9243,6 @@
             }
           }
         }
-      },
-      "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
       }
     },
     "frameworks": {

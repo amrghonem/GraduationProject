@@ -15,6 +15,10 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using GraduationProject.Web.Models;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -159,64 +163,42 @@ namespace GraduationProject.Web.Controllers.Api
             newQuestion.Likes = 0;
             newQuestion.Dislikes = 0; 
             var Question = _profileSrv.AddQuestion(newQuestion);
+            var studentData = _profileSrv.GetStudent(User.Id);
 
             //SignalR Layer .
-            // 1) Get List Of Followings Connections Ids .
-
-            // 2) Get Question Object .
-
-            // 3) Call SignalR Api Pass Parameters To It .
-
+            // This Layer Should Be In Try Catch Ex. Handler Beacuse App Shoul Work If SignalR Service Working or Not.
             try
             {
-                return Ok(new
+                // 1) Get List Of Followings Connections Ids .
+                var Follower = _profileSrv.GetStudentFriends(User.Id).Select(u=> u.FriendTwoId);
+
+                // 2) Get Question Object .
+
+                // 3) Call SignalR Api Pass Parameters To It .
+                using (var client = new HttpClient())
                 {
-                    Status = "Success",
-                    Question = new
-                    {
-                        QuestionHead = Question.QuestionHead,
-                        Id = Question.Id,
-                        Likes = Question.Likes,
-                        Dislikes = Question.Dislikes,
-                        Username = User.Name,
-                        UserId = User.Id,
-                        Image = "",
-                        //,
-                        //                    Answers =
-                        //     from a in Question.Answers
-                        //     select new
-                        //     {
-                        //         Answer = a.QuestionAnswer,
-                        //         AnswerId = a.Id,
-                        //         UserId = a.UserId,
-                        //         Username = a.User.Name,
-                        //         UserImage = _profileSrv.GetStudentProfile(User).Image
-                        //     }//End Answers
-                    }//End Questions
-                                    }//End Response Object
-                     );
+                    var content = new StringContent(new {name ="Data" }.ToString(), Encoding.UTF8, "application/json");
+                    var result = client.PostAsync("http://localhost:2656/api/signalr/newquestion", content).Result;
+                }
             }
-            catch
+            catch 
             {
-                return Ok(new
-                {
-                    Status = "Success",
-                    Question = new
-                    {
-                        QuestionHead = Question.QuestionHead,
-                        Id = Question.Id,
-                        Likes = Question.Likes,
-                        Dislikes = Question.Dislikes,
-                        Username= User.Name,
-                        UserId = User.Id,
-                        Image = "",
-                        Answers =new { }
-                     
-                        }//End Questions
-                    }//End Response Object
-                 );
+                //IGnore
             }
 
+
+            return Ok(new { Status = "Success",
+                Question = new {
+                    QuestionHead = Question.QuestionHead,
+                    Id = Question.Id,
+                    Username = User.Name,
+                    Image = studentData.Image,
+                    UserId = studentData.ApplicationUserId,
+                    Title =studentData.Title,
+                    Date = Question.Date,
+                    Answers = new object[0]
+                }
+            });
         }
 
         [Authorize(policy: "Students")]
@@ -255,13 +237,13 @@ namespace GraduationProject.Web.Controllers.Api
             return Ok(new { Status = "Success"});
         }
 
-        [Authorize(policy: "Students")]
+        //[Authorize(policy: "Students")]
         [Route("api/uploadstudentimage")]
         [HttpPost]
         public async Task<IActionResult> UploadStudentImage(IFormFile file)
         {
             var files = Request.Form.Files;
-            if (file.Length > 0 && file.Length < 5000)
+            if (file.Length > 0 && file.Length < 500000)
             {
                 //Get Request's User 
                 var claimsIdentity = (ClaimsIdentity)this.User.Identity;
@@ -282,12 +264,13 @@ namespace GraduationProject.Web.Controllers.Api
                     return Ok(new { Status = "Failed", Msg = "Wrong Image Type We Only Allow .png .jpg .jpeg" });
                 }
                 string path = Path.Combine(_env.WebRootPath, "uploadedimages");
-                using (var fs = new FileStream(Path.Combine(path, file.FileName+Guid.NewGuid()), FileMode.Create))
+                var fileName = Guid.NewGuid() + file.FileName;
+                using (var fs = new FileStream(Path.Combine(path,  fileName), FileMode.Create))
                 {
                     file.CopyTo(fs);
                 }
 
-                var result = _profileSrv.UpdateStudentImage(User.Id, path);
+                var result = _profileSrv.UpdateStudentImage(User.Id, "/uploadedimages/"+fileName);
                 return Ok(new { Status = "Success", ImagePath = result });
             }
             return Ok(new {Status ="Failed",Msg= "Exceed Sizes Limit" });

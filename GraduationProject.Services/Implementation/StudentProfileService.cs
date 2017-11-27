@@ -85,6 +85,10 @@ namespace GraduationProject.Services.Implementation
             var userToEdit = _ctx.Users.SingleOrDefault(u => u.Id == user.Id);
             userToEdit = user;
             _ctx.SaveChanges();
+            //Edit Studetnt 
+            var oldStudent = _repoStud.GetAll().SingleOrDefault(s => s.ApplicationUserId == student.ApplicationUserId);
+            //Image Updated In Separate Method .
+            student.Image = oldStudent.Image;
             return  _repoStud.Update(student);
         }
 
@@ -109,6 +113,7 @@ namespace GraduationProject.Services.Implementation
 
         public Question AddQuestion(Question newQuestion)
         {
+            newQuestion.Date = DateTime.Now;
             var q = _questionsRepo.Insert(newQuestion);
             return q;
         }
@@ -251,19 +256,25 @@ namespace GraduationProject.Services.Implementation
                         QuestionHead = question.QuestionHead,
                         Username = question.User.Name,
                         Image = studentData.Image,
-                        UserId = question.UserId
+                        UserId = question.UserId,
+                        Title = studentData.Title,
+                        Date=question.Date
                     };
 
                     List<QuestionAnswerVM> questionAnswersList = new List<QuestionAnswerVM>();
                     foreach (var answer in question.Answers)
                     {
+                        var answerdStudentData = GetStudent(question.UserId);
+
                         QuestionAnswerVM Answer = new QuestionAnswerVM()
                         {
-                            Answer = answer.QuestionAnswer,
+                            QuestionAnswer = answer.QuestionAnswer,
                             Id = answer.Id,
                             UserId = answer.UserId,
                             Username = answer.User.Name,
-                            //UserImage = answer.User.Student.Image
+                            UserImage = answerdStudentData.Image,
+                            Title = answerdStudentData.Title,
+                            Date=answer.Date
                         };
                         questionAnswersList.Add(Answer);
                     }//End Answers ForLoop
@@ -275,11 +286,21 @@ namespace GraduationProject.Services.Implementation
             }//End Questions ForLoop
             studentProfile.Questions = questionsList;
             //End Student Questions
-
             return studentProfile;
-        }//End Get Profile
+        }
+
+        public int StudentFollowersCount(string id)
+        {
+            return _frindRepo.GetAll().Where(u => u.FriendTwoId == id).ToList().Count; ;
+        }
+        public int StudentFollowingCount(string id)
+        {
+            return _frindRepo.GetAll().Where(u => u.FriendOneId == id).ToList().Count; ;
+        }
+
+        //End Get Profile
         //Get Student Skills
-         IEnumerable<StudentSkill> GetStudentSkills(string userId)
+        IEnumerable<StudentSkill> GetStudentSkills(string userId)
         {
            return  _studentSkillRepo.GetAll().Include(s=> s.Skill).Where(u => u.StudentId == userId);
         }
@@ -299,7 +320,7 @@ namespace GraduationProject.Services.Implementation
             return _questionsRepo.GetAll().Include(a=>a.Answers).Include(u=>u.User.Student).Where(u => u.UserId == userId);
         }
         //Get Student Friends
-         IEnumerable<Friend> GetStudentFriends(string userId)
+        public IEnumerable<Friend> GetStudentFriends(string userId)
         {
             return _frindRepo.GetAll().Where(u => u.FriendOne.Id == userId).Include(u=>u.FriendOne).Include(u=> u.FriendTwo);
         }

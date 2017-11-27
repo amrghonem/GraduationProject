@@ -64,7 +64,6 @@ D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Signa
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Webpages.Razor.xml
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Helpers.xml
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Mvc.xml
-D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\obj\Debug\GraduationProject.SignalR.csproj.CoreCompileInputs.cache
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\obj\Debug\GraduationProject.SignalR.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\obj\Debug\GraduationProject.SignalR.pdb
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\obj\Debug\GraduationProject.SignalR.csprojResolveAssemblyReference.cache
@@ -81,3 +80,15 @@ D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Signa
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.Security.xml
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Newtonsoft.Json.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Net.Http.Formatting.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Http.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Http.WebHost.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Net.Http.Formatting.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Http.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Http.WebHost.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.Cors.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Cors.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\Microsoft.Owin.Cors.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Http.Cors.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Http.Cors.xml
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\obj\Debug\GraduationProject.SignalR.csproj.CoreCompileInputs.cache

@@ -11,12 +11,36 @@
     </head>
 <body>
     <h3>App Working...</h3>
-    <form action="StudentProfile/UploadImage"  method="post"
+    @*<form action="StudentProfile/UploadStudentImage"  method="post"
           enctype="multipart/form-data">
 
         <input type="file" name="file" />
         <button type="submit">Upload File</button>
     </form>
+
+        <form name="frm" id="frm" enctype="multipart/form-data">
+            <input name="file" type="file" />
+            <button type="submit">ok</button>
+        </form>
+    <script src="~/lib/jquery-3.2.1.min.js"></script>
+    <script>
+           $("#frm").submit(function (e) {
+        var data = new FormData(this);
+        $.ajax({
+            url: "/api/uploadstudentimage",
+            type: "Post",
+            datatype: "Json",
+            data: data,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                alert("Done")
+            }
+        })
+        e.preventDefault();
+    });
+
+    </script>*@
 </body>
     
-    </html>
+</html>
