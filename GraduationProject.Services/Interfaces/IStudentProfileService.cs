@@ -14,11 +14,14 @@ namespace GraduationProject.Services.Interfaces
         StudentSkillVM AddStudentSkill(StudentSkill newStudentSkill);
         int DeleteStudentSkill(int studentakillid);
         Question AddQuestion(Question newQuestion);
+        int StudentFollowersCount(string id);
+        int StudentFollowingCount(string id);
         int DeleteQuestion(int questionId);
         //StudentProfileVM GetStudentFullProfile(string userId);
         int UnFollowFriendint(int id);
         Friend FollowFriend(ApplicationUser user, ApplicationUser frined);
         Student GetStudent(string id);
         string UpdateStudentImage(string userid, string imagepath);
+        IEnumerable<Friend> GetStudentFriends(string userId);
     }
 }

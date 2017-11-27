@@ -9,7 +9,7 @@ namespace GraduationProject.Data
         public string QuestionAnswer { get; set; }
         public virtual ApplicationUser User { get; set; }
         public string UserId { get; set; }
-
+        public DateTime Date { get; set; }
         public virtual Question Question { get; set; }
         public int QuestionId { get; set; }
     }

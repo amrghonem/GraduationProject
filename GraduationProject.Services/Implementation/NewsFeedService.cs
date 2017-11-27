@@ -15,17 +15,41 @@ namespace GraduationProject.Services.Implementation
         private IRepository<Friend> _friendRepo;
         private IRepository<Question> _questionRepo;
         private IRepository<Answer> _answerRepo;
+        private IRepository<Student> _repoStud;
 
-        public NewsFeedService(IRepository<Friend> friendRepo,IRepository<Question> questionRepo,IRepository<Answer> answerRepo)
+        public NewsFeedService(IRepository<Friend> friendRepo,
+            IRepository<Question> questionRepo,
+            IRepository<Answer> answerRepo,
+              IRepository<Student> repoStud)
         {
             _friendRepo = friendRepo;
             _questionRepo = questionRepo;
             _answerRepo = answerRepo;
+            _repoStud = repoStud;
         }
 
-        public Answer AddAnswer(Answer answer)
+        public AnswerVM AddAnswer(Answer answer)
         {
-            return _answerRepo.Insert(answer);
+            var result = _answerRepo.Insert(answer);
+            if (result !=null)
+            {
+                answer.Date = DateTime.Now;
+                var student = GetStudent(answer.UserId);
+
+                return new AnswerVM()
+                {
+                    Username =student.User.Name,
+                    UserImage = student.Image,
+                    Title = student.Title,
+                    UserId =  student.ApplicationUserId,
+                    Id=result.Id,
+                    Answer = result.QuestionAnswer,
+                    Date = Convert.ToDateTime(answer.Date.ToString("yyyy-MM-dd")),
+                    Gender = student.User.Gender
+                };
+            }
+            return null;
+            
         }
 
         public IEnumerable<StudentQuestionVM> FollowingQuestions(string userId)
@@ -33,10 +57,13 @@ namespace GraduationProject.Services.Implementation
             //Get All Following UserId
             var Friends = _friendRepo.GetAll().Include(u=>u.FriendTwo).ToList().Select(u=>u.FriendTwo.Id).ToList();
             //Get Questions With Answers Of These Users
-            var allFollowingQuestions = _questionRepo.GetAll().Include(a => a.Answers).Include(u => u.User).ThenInclude(u=>u.Student).Where(q =>Friends.Contains(q.UserId));
+            var allFollowingQuestions = _questionRepo.GetAll().Include(a => a.Answers).Include(u => u.User)
+                .ThenInclude(u=>u.Student).Where(q =>Friends.Contains(q.UserId));
+
             List<StudentQuestionVM> questionsList = new List<StudentQuestionVM>();
             foreach (var question in allFollowingQuestions)
             {
+                var studentData = GetStudent(question.UserId);
                 StudentQuestionVM studentQuestion = new StudentQuestionVM()
                 {
                     Id = question.Id,
@@ -44,20 +71,27 @@ namespace GraduationProject.Services.Implementation
                     Likes = question.Likes,
                     QuestionHead = question.QuestionHead,
                     Username = question.User.Name,
-                    //Image = question.User.Student.Image,
-                    UserId = question.UserId
+                    Image = studentData.Image,
+                    UserId = question.UserId,
+                    Title = studentData.Title,
+                    Gender = studentData.User.Gender,
+                    Date = Convert.ToDateTime(question.Date.ToString("yyyy-MM-dd"))
                 };
 
                 List<QuestionAnswerVM> questionAnswersList = new List<QuestionAnswerVM>();
                 foreach (var answer in question.Answers)
                 {
+                    var answeredStudentData = GetStudent(answer.UserId);
                     QuestionAnswerVM Answer = new QuestionAnswerVM()
                     {
-                        Answer = answer.QuestionAnswer,
+                        QuestionAnswer = answer.QuestionAnswer,
                         Id = answer.Id,
                         UserId = answer.UserId,
                         Username = answer.User.Name,
-                        //UserImage = answer.User.Student.Image
+                        UserImage = answeredStudentData.Image,
+                        Title =studentData.Title,
+                        Date = Convert.ToDateTime(question.Date.ToString("yyyy-MM-dd")),
+                        Gender = answer.User.Gender
                     };
                     questionAnswersList.Add(Answer);
                 }//End Answers ForLoop
@@ -66,5 +100,22 @@ namespace GraduationProject.Services.Implementation
             }//End Questions ForLoop
             return questionsList;
         }
+
+        public Student GetStudent(string id)
+        {
+            return _repoStud.GetAll().Include(u => u.User).SingleOrDefault(s => s.ApplicationUserId == id);
+        }
+    }
+
+    public class AnswerVM
+    {
+        public string Answer { get; set; }
+        public string UserId { get; set; }
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string UserImage { get; set; }
+        public string Title { get; set; }
+        public string Gender { get; set; }
+        public DateTime Date { get; set; }
     }
 }

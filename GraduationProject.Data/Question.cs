@@ -11,6 +11,7 @@ namespace GraduationProject.Data
         public string UserId { get; set; }
         public long Likes { get; set; }
         public long Dislikes { get; set; }
+        public DateTime Date { get; set; }
 
         public virtual ICollection<Answer> Answers { get; set; }
 

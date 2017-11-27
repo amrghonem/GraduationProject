@@ -21,6 +21,8 @@ namespace GraduationProject.DataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("Date");
+
                     b.Property<string>("QuestionAnswer");
 
                     b.Property<int>("QuestionId");
@@ -163,6 +165,8 @@ namespace GraduationProject.DataAccess.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Date");
 
                     b.Property<long>("Dislikes");
 

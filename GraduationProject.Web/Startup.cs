@@ -19,6 +19,7 @@ using GraduationProject.Services.Implementation;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Net;
 using GraduationProject.Infrastructure;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace GraduationProject.Web
 {
@@ -125,7 +126,12 @@ namespace GraduationProject.Web
                 cfg.AddPolicy("Admins", p => p.RequireClaim("Admin", "True"));
             });
 
-            
+            // Register the Swagger generator, defining one or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
+
 
             //Dependancy Injection
             services.AddScoped<IEmailSender, EmailSender>();
@@ -135,6 +141,7 @@ namespace GraduationProject.Web
             services.AddScoped<ISubCategoryService, SubCategoryService>();
             services.AddScoped<IStudentProfileService, StudentProfileService>();
             services.AddScoped<INewsFeedService, NewsFeedService>();
+            services.AddScoped<ISignalrService, SignalrService>();
         }
         public IConfigurationRoot Configuration { get; }
 
@@ -173,6 +180,15 @@ namespace GraduationProject.Web
             app.UseIdentity();
 
             app.UseStaticFiles();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             if (env.IsDevelopment())
             {

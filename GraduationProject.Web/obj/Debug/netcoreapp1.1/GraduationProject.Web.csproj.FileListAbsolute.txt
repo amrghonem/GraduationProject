@@ -12,8 +12,8 @@ D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\b
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\bin\Debug\netcoreapp1.1\GraduationProject.Services.pdb
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\bin\Debug\netcoreapp1.1\GraduationProject.Infrastructure.pdb
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\obj\Debug\netcoreapp1.1\GraduationProject.Web.csprojResolveAssemblyReference.cache
-D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\obj\Debug\netcoreapp1.1\GraduationProject.Web.csproj.CoreCompileInputs.cache
-D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\obj\Debug\netcoreapp1.1\GraduationProject.Web.AssemblyInfoInputs.cache
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\obj\Debug\netcoreapp1.1\GraduationProject.Web.AssemblyInfo.cs
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\obj\Debug\netcoreapp1.1\GraduationProject.Web.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\obj\Debug\netcoreapp1.1\GraduationProject.Web.pdb
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\obj\Debug\netcoreapp1.1\GraduationProject.Web.csproj.CoreCompileInputs.cache
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Web\obj\Debug\netcoreapp1.1\GraduationProject.Web.AssemblyInfoInputs.cache
