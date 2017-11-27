@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationProject.Data", "GraduationProject.Data\GraduationProject.Data.csproj", "{0F1B601C-B7FA-41A5-834A-CABBEFF26DDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduationProject.Data", "GraduationProject.Data\GraduationProject.Data.csproj", "{0F1B601C-B7FA-41A5-834A-CABBEFF26DDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationProject.DataAccess", "GraduationProject.DataAccess\GraduationProject.DataAccess.csproj", "{B1FBB331-E16E-425B-9145-87E0A23A6F16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduationProject.DataAccess", "GraduationProject.DataAccess\GraduationProject.DataAccess.csproj", "{B1FBB331-E16E-425B-9145-87E0A23A6F16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationProject.Infrastructure", "GraduationProject.Infrastructure\GraduationProject.Infrastructure.csproj", "{9A5BE4B7-58EB-4C54-A103-BE99061010E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduationProject.Infrastructure", "GraduationProject.Infrastructure\GraduationProject.Infrastructure.csproj", "{9A5BE4B7-58EB-4C54-A103-BE99061010E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationProject.Services", "GraduationProject.Services\GraduationProject.Services.csproj", "{251DFF2E-B247-4445-9AFC-34899132A809}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduationProject.Services", "GraduationProject.Services\GraduationProject.Services.csproj", "{251DFF2E-B247-4445-9AFC-34899132A809}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationProject.Web", "GraduationProject.Web\GraduationProject.Web.csproj", "{4B4E6D10-70BB-43F6-91B0-E9188B04AE66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduationProject.Web", "GraduationProject.Web\GraduationProject.Web.csproj", "{4B4E6D10-70BB-43F6-91B0-E9188B04AE66}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationProject.SignalR", "GraduationProject.SignalR\GraduationProject.SignalR.csproj", "{5B9D8995-3BE1-4154-9945-2D670C500AD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraducationProject.SignalRService", "GraducationProject.SignalRService\GraducationProject.SignalRService.csproj", "{9283DEEA-3BFB-4999-8D2B-462A46D033C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{5B9D8995-3BE1-4154-9945-2D670C500AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B9D8995-3BE1-4154-9945-2D670C500AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B9D8995-3BE1-4154-9945-2D670C500AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9283DEEA-3BFB-4999-8D2B-462A46D033C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9283DEEA-3BFB-4999-8D2B-462A46D033C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9283DEEA-3BFB-4999-8D2B-462A46D033C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9283DEEA-3BFB-4999-8D2B-462A46D033C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
