@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,6 +18,7 @@ using GraduationProject.Web.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
+using GraduationProject.Data.Models;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -30,16 +31,19 @@ namespace GraduationProject.Web.Controllers.Api
         private UserManager<ApplicationUser> _userManager;
         private IHostingEnvironment _env;
         private ApplicationDbContext _ctx;
+        private ISignalrService _signalrSrv;
 
         public StudentProfileController(IStudentProfileService profileSrv ,
             UserManager<ApplicationUser> userManager,
             ApplicationDbContext ctx,
-            IHostingEnvironment env)
+            IHostingEnvironment env,
+            ISignalrService signalrSrv)
         {
             _profileSrv = profileSrv;
             _userManager = userManager;
             _env = env;
             _ctx = ctx;
+            _signalrSrv = signalrSrv;
         }
 
         [Authorize(policy: "Students")]
@@ -170,15 +174,29 @@ namespace GraduationProject.Web.Controllers.Api
             try
             {
                 // 1) Get List Of Followings Connections Ids .
-                var Follower = _profileSrv.GetStudentFriends(User.Id).Select(u=> u.FriendTwoId);
-
+                var Follower = _profileSrv.GetStudentFriends(User.Id).Select(u=> u.FriendTwoId).ToList();
+                var Connections = _signalrSrv.GetConnectionsByUserId(Follower).ToList();
                 // 2) Get Question Object .
 
                 // 3) Call SignalR Api Pass Parameters To It .
                 using (var client = new HttpClient())
                 {
-                    var content = new StringContent(new {name ="Data" }.ToString(), Encoding.UTF8, "application/json");
-                    var result = client.PostAsync("http://localhost:2656/api/signalr/newquestion", content).Result;
+                    NewQuestionSignalrVM model = new NewQuestionSignalrVM() {
+                       Connection = Connections,
+                        QuestionHead = Question.QuestionHead,
+                        Id = Question.Id,
+                        Username = User.Name,
+                        Image = studentData.Image,
+                        UserId = studentData.ApplicationUserId,
+                        Title = studentData.Title,
+                        Date = Question.Date,
+                        Answers = null
+                    };
+
+                    var modelToJson = JsonConvert.SerializeObject(model);
+                    
+                    var content = new StringContent(modelToJson, Encoding.UTF8, "application/json");
+                    var result = client.PostAsync("http://localhost:10724/api/signalr/newquestion", content).Result;
                 }
             }
             catch 
@@ -237,7 +255,7 @@ namespace GraduationProject.Web.Controllers.Api
             return Ok(new { Status = "Success"});
         }
 
-        //[Authorize(policy: "Students")]
+        [Authorize(policy: "Students")]
         [Route("api/uploadstudentimage")]
         [HttpPost]
         public async Task<IActionResult> UploadStudentImage(IFormFile file)

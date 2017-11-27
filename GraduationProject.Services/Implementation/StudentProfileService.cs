@@ -258,7 +258,8 @@ namespace GraduationProject.Services.Implementation
                         Image = studentData.Image,
                         UserId = question.UserId,
                         Title = studentData.Title,
-                        Date=question.Date
+                        Date=question.Date,
+                        Gender = studentData.User.Gender
                     };
 
                     List<QuestionAnswerVM> questionAnswersList = new List<QuestionAnswerVM>();
@@ -274,7 +275,8 @@ namespace GraduationProject.Services.Implementation
                             Username = answer.User.Name,
                             UserImage = answerdStudentData.Image,
                             Title = answerdStudentData.Title,
-                            Date=answer.Date
+                            Date=answer.Date,
+                            Gender = answerdStudentData.User.Gender
                         };
                         questionAnswersList.Add(Answer);
                     }//End Answers ForLoop
@@ -317,7 +319,7 @@ namespace GraduationProject.Services.Implementation
         //Get Student Questions With Answers
          IEnumerable<Question> GetStudentQuestions(string userId)
         {
-            return _questionsRepo.GetAll().Include(a=>a.Answers).Include(u=>u.User.Student).Where(u => u.UserId == userId);
+            return _questionsRepo.GetAll().Include(a=>a.Answers).Include(u=>u.User.Student).Where(u => u.UserId == userId).OrderByDescending(q=>q.Date);
         }
         //Get Student Friends
         public IEnumerable<Friend> GetStudentFriends(string userId)

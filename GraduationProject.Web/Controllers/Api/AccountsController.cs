@@ -133,7 +133,8 @@ namespace GraduationProject.Web.Controllers.Api
                         {
                             token = new JwtSecurityTokenHandler().WriteToken(token),
                             Status = "Success",
-                            UserType = user.UserType
+                            UserType = user.UserType,
+                            UserId = user.Id
                         });
                     }
                 }
