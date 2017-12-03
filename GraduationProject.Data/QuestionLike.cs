@@ -10,6 +10,7 @@ namespace GraduationProject.Data
         public virtual Question Question { get; set; }
         public string UserId { get; set; }
         public int QuestionId { get; set; }
+        public DateTime Date { get; set; }
         //Like-Dislike-NoAction
         public string State { get; set; }
     }

@@ -81,7 +81,7 @@ namespace GraduationProject.Web.Controllers.Api
 
         [HttpPost]
         [Route("api/likedislikequestion")]
-        public async Task<IActionResult> LikeDislikeQuestionAsync(QuestionLike like)
+        public async Task<IActionResult> LikeDislikeQuestionAsync([FromBody]QuestionLike like)
         {
             //Get Request's User 
             var claimsIdentity = (ClaimsIdentity)this.User.Identity;

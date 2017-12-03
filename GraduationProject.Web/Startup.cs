@@ -142,6 +142,7 @@ namespace GraduationProject.Web
             services.AddScoped<IStudentProfileService, StudentProfileService>();
             services.AddScoped<INewsFeedService, NewsFeedService>();
             services.AddScoped<ISignalrService, SignalrService>();
+            services.AddScoped<IQuestionLikeService, QuestionLikeService>();
         }
         public IConfigurationRoot Configuration { get; }
 
