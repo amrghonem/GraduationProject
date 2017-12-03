@@ -18,14 +18,17 @@ namespace GraduationProject.Web.Controllers.Api
         private INewsFeedService _newsFeedSrv;
         private UserManager<ApplicationUser> _userManager;
         private IStudentProfileService _studSrv;
+        private IQuestionLikeService _queLikeSrv;
 
         public NewsFeedController(INewsFeedService newsFeedSrv
             ,UserManager<ApplicationUser> userManager
-            , IStudentProfileService studSrv)
+            , IStudentProfileService studSrv,
+            IQuestionLikeService queLikeSrv)
         {
             _newsFeedSrv = newsFeedSrv;
             _userManager = userManager;
             _studSrv = studSrv;
+            _queLikeSrv = queLikeSrv;
         }
         [HttpPost]
         [Route("api/addanswer")]
@@ -66,7 +69,37 @@ namespace GraduationProject.Web.Controllers.Api
                 Gender = studentData.User.Gender
             }
             , Feed = _newsFeedSrv.FollowingQuestions(User.Id).OrderByDescending(q=>q.Id) });
+        }
 
+        [Route("api/getquestionsbyid")]
+        [HttpPost]
+        public IActionResult GetQuestionsByIds([FromBody]List<int> ids)
+        {
+            var Questions = _newsFeedSrv.GetQuestionsByIds(ids);
+            return Ok(new{Status ="Success", Questions });    
+        }
+
+        [HttpPost]
+        [Route("api/likedislikequestion")]
+        public async Task<IActionResult> LikeDislikeQuestionAsync(QuestionLike like)
+        {
+            //Get Request's User 
+            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+            if (!claimsIdentity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
+            //Get Student Profile
+            var claim = claimsIdentity.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            var userEmail = claim.Value;
+            var User = await _userManager.FindByEmailAsync(userEmail);
+            like.UserId = User.Id;
+            var result = _queLikeSrv.LikeDislikeQuestion(like);
+            if(result  !=null)
+            {
+                return Ok(new { Status = "Success" ,Action = result.State });
+            }
+            return Ok(new { Status = "Failed" });
         }
     }
 }

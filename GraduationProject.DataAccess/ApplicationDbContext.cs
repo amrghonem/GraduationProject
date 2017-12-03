@@ -17,6 +17,7 @@ namespace GraduationProject.DataAccess
         public DbSet<Answer> QuestionsAnswers { get; set; }
         public DbSet<Friend> Friends { get; set; }
         public DbSet<SignalRConnection> SignalrConnections { get; set; }
+        public DbSet<QuestionLike> QuestionsLikes { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -95,6 +96,18 @@ namespace GraduationProject.DataAccess
                 .HasForeignKey(e => e.FriendTwoId);
             //End Friends Mapping
 
+            //Questions  Likes Mapping
+            builder.Entity<QuestionLike>()
+                .Property(i => i.Id).ValueGeneratedOnAdd();
+            builder.Entity<QuestionLike>()
+                .HasOne(ql => ql.User)
+                .WithMany(ql => ql.QuestionsLikes)
+                .HasForeignKey(ql => ql.UserId);
+            builder.Entity<QuestionLike>()
+                .HasOne(ql => ql.Question)
+                .WithMany(ql => ql.QuestionsLikes)
+                .HasForeignKey(ql => ql.QuestionId);
+            //End Question Likes Mapping
         }
     }
 }

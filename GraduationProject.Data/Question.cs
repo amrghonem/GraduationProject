@@ -15,5 +15,7 @@ namespace GraduationProject.Data
 
         public virtual ICollection<Answer> Answers { get; set; }
 
+        public virtual ICollection<QuestionLike> QuestionsLikes { get; set; }
+
     }
 }

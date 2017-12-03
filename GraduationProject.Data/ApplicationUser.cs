@@ -24,5 +24,7 @@ namespace GraduationProject.Data
         public virtual ICollection<Friend> Friends1 { get; set; }
 
         public virtual ICollection<SignalRConnection> SignalrConnections { get; set; }
+
+        public virtual ICollection<QuestionLike> QuestionsLikes { get; set; }
     }
 }

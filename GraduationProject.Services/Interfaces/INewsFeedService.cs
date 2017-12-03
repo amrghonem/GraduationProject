@@ -11,5 +11,6 @@ namespace GraduationProject.Services.Interfaces
     {
         IEnumerable<StudentQuestionVM> FollowingQuestions(string userId);
         AnswerVM AddAnswer(Answer answer);
+        IEnumerable<StudentQuestionVM> GetQuestionsByIds(List<int> ids);
     }
 }
