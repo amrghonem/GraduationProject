@@ -41,7 +41,7 @@ namespace GraduationProject.Services.Implementation
                         _queRepo.Update(question);
                     }
                     _queLikeRepo.Delete(res);
-                    return null;
+                    return res;
                 }
 
                 res.State = like.State;
@@ -69,7 +69,16 @@ namespace GraduationProject.Services.Implementation
                     question.Dislikes += 1;
                     _queRepo.Update(question);
                 }
-                return _queLikeRepo.Insert(like);
+                try
+                {
+
+                    return _queLikeRepo.Insert(like);
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
             }
         }
 
