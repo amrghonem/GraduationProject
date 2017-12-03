@@ -8,12 +8,6 @@ namespace GraduationProject.Data
 {
     public class Friend :BaseEntity
     {
-        //[ForeignKey("FriendOneId")]
-        //public ApplicationUser FriendOne { get; set; }
-        //[ForeignKey("FriendTwoId")]
-        //public ApplicationUser FriendTwo { get; set; }
-
-
         [StringLength(450)]
         public string FriendOneId { get; set; }
 

@@ -28,6 +28,60 @@ namespace GraduationProject.Services.Implementation
             _repoStud = repoStud;
         }
 
+        public IEnumerable<StudentQuestionVM> GetQuestionsByIds(List<int> ids)
+        {
+            var questions = new List<StudentQuestionVM>();
+            foreach (var id in ids)
+            {
+                var question = _questionRepo.GetAll().SingleOrDefault(q=> q.Id==id);
+                var userData = GetStudent(question.UserId);
+                List<StudentQuestionVM> questionsList = new List<StudentQuestionVM>();
+
+                    var studentData = GetStudent(question.UserId);
+                    if (studentData != null)
+                    {
+                        StudentQuestionVM studentQuestion = new StudentQuestionVM()
+                        {
+                            Id = question.Id,
+                            Dislikes = question.Dislikes,
+                            Likes = question.Likes,
+                            QuestionHead = question.QuestionHead,
+                            Username = question.User.Name,
+                            Image = studentData.Image,
+                            UserId = question.UserId,
+                            Title = studentData.Title,
+                            Date = question.Date,
+                            Gender = studentData.User.Gender
+                        };
+
+                        //List<QuestionAnswerVM> questionAnswersList = new List<QuestionAnswerVM>();
+                        //foreach (var answer in question.Answers)
+                        //{
+                        //    var answerdStudentData = GetStudent(question.UserId);
+
+                        //    QuestionAnswerVM Answer = new QuestionAnswerVM()
+                        //    {
+                        //        QuestionAnswer = answer.QuestionAnswer,
+                        //        Id = answer.Id,
+                        //        UserId = answer.UserId,
+                        //        Username = answer.User.Name,
+                        //        UserImage = answerdStudentData.Image,
+                        //        Title = answerdStudentData.Title,
+                        //        Date = answer.Date,
+                        //        Gender = answerdStudentData.User.Gender
+                        //    };
+                        //    questionAnswersList.Add(Answer);
+                        //}//End Answers ForLoop
+                        //studentQuestion.Answers = questionAnswersList;
+
+                        questionsList.Add(studentQuestion);
+                    }
+                 //End Student Questions
+                return questionsList;
+            }
+            return questions;
+        }
+
         public AnswerVM AddAnswer(Answer answer)
         {
             var result = _answerRepo.Insert(answer);

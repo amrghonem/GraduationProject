@@ -82,14 +82,17 @@ namespace GraduationProject.Services.Implementation
             //After Edting Means User Complete His Profile.
             student.FirstVisit = false;
             //Edit User Account Data ==> Gender,Birthdate,Name
-            var userToEdit = _ctx.Users.SingleOrDefault(u => u.Id == user.Id);
+            var userToEdit = _ctx.Users.AsNoTracking().SingleOrDefault(u => u.Id == user.Id);
             userToEdit = user;
             _ctx.SaveChanges();
+            _ctx.Entry(userToEdit).State = EntityState.Detached;
             //Edit Studetnt 
-            var oldStudent = _repoStud.GetAll().SingleOrDefault(s => s.ApplicationUserId == student.ApplicationUserId);
+            //var oldStudent = _repoStud.GetAll().SingleOrDefault(s => s.ApplicationUserId == student.ApplicationUserId);
             //Image Updated In Separate Method .
-            student.Image = oldStudent.Image;
-            return  _repoStud.Update(student);
+          //student.Image = oldStudent.Image;
+            var res = _repoStud.Update(student);
+            _ctx.SaveChanges();
+            return  res;
         }
 
         public StudentSkillVM AddStudentSkill(StudentSkill newStudentSkill)

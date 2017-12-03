@@ -94,6 +94,7 @@ namespace GraduationProject.Web.Controllers.Api
             studentToEdit.UniverstyYearFrom = student.UniverstyYearFrom;
             studentToEdit.UniverstyYearTo = student.UniverstyYearTo;
             studentToEdit.ApplicationUserId = User.Id;
+            studentToEdit.Image = student.Image;
             ApplicationUser userToEdit = new ApplicationUser();
             userToEdit = User;
             userToEdit.Gender = student.Gender;

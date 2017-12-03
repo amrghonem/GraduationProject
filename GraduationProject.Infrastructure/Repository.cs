@@ -48,8 +48,17 @@ namespace GraduationProject.Infrastructure
             if (entity == null)
                 throw new ArgumentNullException("entity");
 
-            _ctx.Update(entity);
-            _ctx.SaveChanges();
+            try
+            {
+                _ctx.Update(entity);
+                _ctx.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
             return entity;
         }
     }

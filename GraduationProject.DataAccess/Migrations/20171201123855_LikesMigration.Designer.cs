@@ -8,9 +8,10 @@ using GraduationProject.DataAccess;
 namespace GraduationProject.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171201123855_LikesMigration")]
+    partial class LikesMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -188,15 +189,15 @@ namespace GraduationProject.DataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Date");
-
                     b.Property<int>("QuestionId");
-
-                    b.Property<string>("State");
 
                     b.Property<string>("UserId");
 
-                    b.HasKey("Id");
+                    b.Property<DateTime>("Date");
+
+                    b.Property<string>("State");
+
+                    b.HasKey("Id", "QuestionId", "UserId");
 
                     b.HasIndex("QuestionId");
 
@@ -490,7 +491,8 @@ namespace GraduationProject.DataAccess.Migrations
 
                     b.HasOne("GraduationProject.Data.ApplicationUser", "User")
                         .WithMany("QuestionsLikes")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("GraduationProject.Data.SignalRConnection", b =>
