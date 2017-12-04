@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.1": {
@@ -2985,6 +2985,18 @@
           "ref/netstandard1.2/System.Threading.Timer.dll": {}
         }
       },
+      "System.ValueTuple/4.4.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/System.ValueTuple.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.ValueTuple.dll": {}
+        }
+      },
       "System.Xml.ReaderWriter/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3104,7 +3116,14 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "1.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "1.1.1",
-          "Microsoft.NETCore.App": "1.1.2"
+          "Microsoft.NETCore.App": "1.1.2",
+          "System.ValueTuple": "4.4.0"
+        },
+        "compile": {
+          "bin/placeholder/GraduationProject.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GraduationProject.Data.dll": {}
         }
       }
     }
@@ -8547,6 +8566,49 @@
         "system.threading.timer.nuspec"
       ]
     },
+    "System.ValueTuple/4.4.0": {
+      "sha512": "zWDYoUHXufxqBKCEUD6CLE0HN3PHnuvqt9T/kdKrzVwVx+ciAF3rruYpPdn1sGr6f2s+3SsGgl+9qW098T+K9w==",
+      "type": "package",
+      "path": "system.valuetuple/4.4.0",
+      "files": [
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.ValueTuple.dll",
+        "lib/net461/System.ValueTuple.xml",
+        "lib/net47/System.ValueTuple.dll",
+        "lib/net47/System.ValueTuple.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.ValueTuple.dll",
+        "lib/netstandard1.0/System.ValueTuple.xml",
+        "lib/netstandard2.0/_._",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.ValueTuple.dll",
+        "ref/net461/System.ValueTuple.xml",
+        "ref/net47/System.ValueTuple.dll",
+        "ref/net47/System.ValueTuple.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard2.0/_._",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.valuetuple.4.4.0.nupkg.sha512",
+        "system.valuetuple.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Xml.ReaderWriter/4.3.0": {
       "sha512": "GrprA+Z0RUXaR4N7/eW71j1rgMnEnEVlgii49GZyAjTH7uliMnrOU3HNFBr6fEDBCJCIdlVNq9hHbaDR621XBA==",
       "type": "package",
@@ -8810,7 +8872,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 1.1.2",
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.1",
       "Microsoft.EntityFrameworkCore.Tools >= 1.1.1",
-      "Microsoft.NETCore.App >= 1.1.2"
+      "Microsoft.NETCore.App >= 1.1.2",
+      "System.ValueTuple >= 4.4.0"
     ]
   },
   "packageFolders": {
@@ -8818,15 +8881,28 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "D:\\Graducation Project\\Web Application\\GraduationProject\\GraduationProject.DataAccess\\GraduationProject.DataAccess.csproj",
       "projectName": "GraduationProject.DataAccess",
       "projectPath": "D:\\Graducation Project\\Web Application\\GraduationProject\\GraduationProject.DataAccess\\GraduationProject.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "D:\\Graducation Project\\Web Application\\GraduationProject\\GraduationProject.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
@@ -8835,6 +8911,11 @@
             }
           }
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
@@ -8847,6 +8928,10 @@
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "1.1.2"
+          },
+          "System.ValueTuple": {
+            "target": "Package",
+            "version": "4.4.0"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",

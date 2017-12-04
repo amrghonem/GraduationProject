@@ -95,9 +95,9 @@ namespace GraduationProject.Web.Controllers.Api
             var User = await _userManager.FindByEmailAsync(userEmail);
             like.UserId = User.Id;
             var result = _queLikeSrv.LikeDislikeQuestion(like);
-            if(result  !=null)
+            if(result.Item1  !=null)
             {
-                return Ok(new { Status = "Success" ,Action = result.State });
+                return Ok(new { Status = "Success" ,Action = result.Item1.State,Likes = result.Item2,Dislikes = result.Item3 });
             }
             return Ok(new { Status = "Failed" });
         }
