@@ -10,12 +10,14 @@ namespace GraduationProject.Data
     {
         [StringLength(450)]
         public string FriendOneId { get; set; }
-
         [StringLength(450)]
         public string FriendTwoId { get; set; }
-
         public virtual ApplicationUser FriendOne { get; set; }
-
         public virtual ApplicationUser FriendTwo { get; set; }
+
+        //[ForeignKey("FriendOneId")]
+        //public ApplicationUser FriendOne { get; set; }
+        //[ForeignKey("FriendTwoId")]
+        //public ApplicationUser FriendTwo { get; set; }
     }
 }

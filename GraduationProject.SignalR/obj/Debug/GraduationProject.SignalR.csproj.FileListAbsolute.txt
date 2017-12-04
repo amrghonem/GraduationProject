@@ -92,3 +92,5 @@ D:\Graducation Project\Web Application\GraduationProject\GraduationProject.Signa
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Http.Cors.dll
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.Web.Http.Cors.xml
 D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\obj\Debug\GraduationProject.SignalR.csproj.CoreCompileInputs.cache
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.ValueTuple.dll
+D:\Graducation Project\Web Application\GraduationProject\GraduationProject.SignalR\bin\System.ValueTuple.xml

@@ -140,7 +140,7 @@ namespace GraduationProject.DataAccess.Migrations
                     b.Property<string>("FriendTwoId")
                         .HasMaxLength(450);
 
-                    b.HasKey("Id", "FriendOneId", "FriendTwoId");
+                    b.HasKey("Id");
 
                     b.HasIndex("FriendOneId");
 
@@ -464,14 +464,12 @@ namespace GraduationProject.DataAccess.Migrations
             modelBuilder.Entity("GraduationProject.Data.Friend", b =>
                 {
                     b.HasOne("GraduationProject.Data.ApplicationUser", "FriendOne")
-                        .WithMany("Friends")
-                        .HasForeignKey("FriendOneId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany("FriendsOne")
+                        .HasForeignKey("FriendOneId");
 
                     b.HasOne("GraduationProject.Data.ApplicationUser", "FriendTwo")
-                        .WithMany("Friends1")
-                        .HasForeignKey("FriendTwoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany("FriendsTwo")
+                        .HasForeignKey("FriendTwoId");
                 });
 
             modelBuilder.Entity("GraduationProject.Data.Question", b =>

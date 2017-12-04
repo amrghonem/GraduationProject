@@ -227,7 +227,7 @@ namespace GraduationProject.Services.Implementation
             foreach (var frined in allFriends)
             {
                 var friendData = GetStudent(frined.FriendTwoId);
-                if (friendData!=null)
+                if (friendData != null)
                 {
                     StudentFollowingVM studentFriend = new StudentFollowingVM()
                     {
@@ -236,7 +236,7 @@ namespace GraduationProject.Services.Implementation
                         FriendId = frined.FriendTwo.Id,
                         Title = friendData.Title,
                         FriendImage = friendData.Image,
-                        Gender  =friendData.User.Gender
+                        Gender = friendData.User.Gender
                     };
                     finedsList.Add(studentFriend);
                 }

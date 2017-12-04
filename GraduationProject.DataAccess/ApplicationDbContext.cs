@@ -80,20 +80,20 @@ namespace GraduationProject.DataAccess
             //End Student Courses
 
             //Friends Mapping
-            builder.Entity<Friend>().HasKey(f => new {f.Id,f.FriendOneId, f.FriendTwoId });
+            //builder.Entity<Friend>().HasKey(f => new {f.Id,f.FriendOneId, f.FriendTwoId });
 
             builder.Entity<Friend>().Property(f => f.Id).UseSqlServerIdentityColumn();
 
             builder.Entity<Friend>()
                 .HasOne(e => e.FriendOne)
-                .WithMany(e => e.Friends)
+                .WithMany(e => e.FriendsOne)
                 .HasForeignKey(e => e.FriendOneId);
 
 
             builder.Entity<Friend>()
-                .HasOne(e => e.FriendTwo)
-                .WithMany(e => e.Friends1)
-                .HasForeignKey(e => e.FriendTwoId);
+              .HasOne(e => e.FriendTwo)
+              .WithMany(e => e.FriendsTwo)
+              .HasForeignKey(e => e.FriendTwoId);
             //End Friends Mapping
 
             //Questions  Likes Mapping

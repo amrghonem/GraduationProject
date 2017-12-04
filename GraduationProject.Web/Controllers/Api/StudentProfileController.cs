@@ -172,38 +172,38 @@ namespace GraduationProject.Web.Controllers.Api
 
             //SignalR Layer .
             // This Layer Should Be In Try Catch Ex. Handler Beacuse App Shoul Work If SignalR Service Working or Not.
-            try
-            {
-                // 1) Get List Of Followings Connections Ids .
-                var Follower = _profileSrv.GetStudentFriends(User.Id).Select(u=> u.FriendTwoId).ToList();
-                var Connections = _signalrSrv.GetConnectionsByUserId(Follower).ToList();
-                // 2) Get Question Object .
+            //try
+            //{
+            //    // 1) Get List Of Followings Connections Ids .
+            //    var Follower = _profileSrv.GetStudentFriends(User.Id).Select(u=> u.FriendTwoId).ToList();
+            //    var Connections = _signalrSrv.GetConnectionsByUserId(Follower).ToList();
+            //    // 2) Get Question Object .
 
-                // 3) Call SignalR Api Pass Parameters To It .
-                using (var client = new HttpClient())
-                {
-                    NewQuestionSignalrVM model = new NewQuestionSignalrVM() {
-                       Connection = Connections,
-                        QuestionHead = Question.QuestionHead,
-                        Id = Question.Id,
-                        Username = User.Name,
-                        Image = studentData.Image,
-                        UserId = studentData.ApplicationUserId,
-                        Title = studentData.Title,
-                        Date = Question.Date,
-                        Answers = null
-                    };
+            //    // 3) Call SignalR Api Pass Parameters To It .
+            //    using (var client = new HttpClient())
+            //    {
+            //        NewQuestionSignalrVM model = new NewQuestionSignalrVM() {
+            //           Connection = Connections,
+            //            QuestionHead = Question.QuestionHead,
+            //            Id = Question.Id,
+            //            Username = User.Name,
+            //            Image = studentData.Image,
+            //            UserId = studentData.ApplicationUserId,
+            //            Title = studentData.Title,
+            //            Date = Question.Date,
+            //            Answers = null
+            //        };
 
-                    var modelToJson = JsonConvert.SerializeObject(model);
+            //        var modelToJson = JsonConvert.SerializeObject(model);
                     
-                    var content = new StringContent(modelToJson, Encoding.UTF8, "application/json");
-                    var result = client.PostAsync("http://localhost:10724/api/signalr/newquestion", content).Result;
-                }
-            }
-            catch 
-            {
-                //IGnore
-            }
+            //        var content = new StringContent(modelToJson, Encoding.UTF8, "application/json");
+            //        var result = client.PostAsync("http://localhost:10724/api/signalr/newquestion", content).Result;
+            //    }
+            //}
+            //catch 
+            //{
+            //    //IGnore
+            //}
 
 
             return Ok(new { Status = "Success",

@@ -19,7 +19,7 @@ namespace GraduationProject.Services.Implementation
             _queRepo = queRepo;
         }
 
-        public QuestionLike LikeDislikeQuestion(QuestionLike like)
+        public (QuestionLike,long,long) LikeDislikeQuestion(QuestionLike like)
         {
             //Check if liked or disliked before 
             var res = _queLikeRepo.GetAll().SingleOrDefault(q => q.QuestionId == like.QuestionId && q.UserId == like.UserId);
@@ -41,7 +41,7 @@ namespace GraduationProject.Services.Implementation
                         _queRepo.Update(question);
                     }
                     _queLikeRepo.Delete(res);
-                    return res;
+                    return (res,question.Likes,question.Dislikes);
                 }
 
                 res.State = like.State;
@@ -55,7 +55,7 @@ namespace GraduationProject.Services.Implementation
                     question.Dislikes += 1;
                     _queRepo.Update(question);
                 }
-                return _queLikeRepo.Update(res);
+                return (_queLikeRepo.Update(res),question.Likes,question.Dislikes);
             }
             else //Means New Action
             {
@@ -72,7 +72,7 @@ namespace GraduationProject.Services.Implementation
                 try
                 {
 
-                    return _queLikeRepo.Insert(like);
+                    return (_queLikeRepo.Insert(like), question.Likes, question.Dislikes);
                 }
                 catch (Exception ex)
                 {
