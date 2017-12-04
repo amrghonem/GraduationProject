@@ -43,17 +43,24 @@ namespace GraduationProject.Services.Implementation
                     _queLikeRepo.Delete(res);
                     return (res,question.Likes,question.Dislikes);
                 }
-
-                res.State = like.State;
-                if (like.State == "like")
-                {
-                    question.Likes += 1;
-                    _queRepo.Update(question);
-                }
                 else
                 {
-                    question.Dislikes += 1;
-                    _queRepo.Update(question);
+                    if (like.State =="like")
+                    {
+                        question.Likes += 1;
+                        question.Dislikes -= 1;
+                        res.State = "like";
+                        _queLikeRepo.Update(res);
+                        _queRepo.Update(question);
+                    }
+                    else
+                    {
+                        question.Likes -= 1;
+                        question.Dislikes += 1;
+                        res.State = "dislike";
+                        _queLikeRepo.Update(res);
+                        _queRepo.Update(question);
+                    }
                 }
                 return (_queLikeRepo.Update(res),question.Likes,question.Dislikes);
             }
@@ -69,16 +76,8 @@ namespace GraduationProject.Services.Implementation
                     question.Dislikes += 1;
                     _queRepo.Update(question);
                 }
-                try
-                {
 
-                    return (_queLikeRepo.Insert(like), question.Likes, question.Dislikes);
-                }
-                catch (Exception ex)
-                {
-
-                    throw;
-                }
+                return (_queLikeRepo.Insert(like), question.Likes, question.Dislikes);               
             }
         }
 
